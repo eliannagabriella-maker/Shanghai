@@ -1078,6 +1078,504 @@
         }
       }
 
+      /* cev AI Trip Planner Section */
+      .planner-section {
+        max-width: 1344px;
+        margin: 0 auto;
+        padding: 0 24px 128px;
+        scroll-margin-top: 96px;
+      }
+
+      @media (min-width: 768px) {
+        .planner-section {
+          padding: 0 48px 144px;
+        }
+      }
+
+      .planner-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      @media (min-width: 1024px) {
+        .planner-layout {
+          grid-template-columns: 360px 1fr;
+          gap: 48px;
+        }
+      }
+
+      .planner-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .planner-intro {
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--text-secondary);
+      }
+
+      .planner-pref-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .planner-pref-label {
+        color: var(--text-muted);
+      }
+
+      .planner-segments {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--divider);
+      }
+
+      .planner-segment-btn {
+        padding: 10px 8px;
+        min-height: 44px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        border-right: 1px solid var(--divider);
+        white-space: nowrap;
+        transition:
+          background-color 200ms var(--ease-editorial),
+          color 200ms var(--ease-editorial);
+      }
+
+      .planner-segment-btn:last-child {
+        border-right: none;
+      }
+
+      .planner-segment-btn:hover {
+        color: var(--text-primary);
+        background-color: #f5f5f5;
+      }
+
+      .planner-segment-btn.is-active {
+        background-color: #0a0a0a;
+        color: #ffffff;
+      }
+
+      .planner-prompts {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--divider);
+      }
+
+      .planner-prompt-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        text-align: left;
+        padding: 14px 4px;
+        min-height: 44px;
+        font-size: 14px;
+        line-height: 1.45;
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--divider);
+        transition:
+          transform 200ms var(--ease-editorial),
+          color 200ms var(--ease-editorial);
+      }
+
+      .planner-prompt-btn:hover {
+        transform: translateX(6px);
+        color: var(--text-secondary);
+      }
+
+      .planner-prompt-arrow {
+        font-family: var(--font-mono);
+        font-size: 14px;
+        color: var(--text-muted);
+        flex-shrink: 0;
+      }
+
+      .planner-console {
+        border: 1px solid var(--divider);
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .planner-console-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .planner-console-title {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .planner-bot-name {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        color: var(--text-primary);
+      }
+
+      .planner-bot-role {
+        color: var(--text-muted);
+      }
+
+      .planner-clear-btn {
+        padding: 8px 14px;
+        min-height: 44px;
+        border: 1px solid var(--divider);
+        color: var(--text-secondary);
+        white-space: nowrap;
+        transition:
+          background-color 200ms var(--ease-editorial),
+          color 200ms var(--ease-editorial);
+      }
+
+      .planner-clear-btn:hover:not(:disabled) {
+        background-color: #0a0a0a;
+        color: #ffffff;
+      }
+
+      .planner-clear-btn:disabled {
+        opacity: 0.4;
+      }
+
+      .planner-thread {
+        height: 440px;
+        overflow-y: auto;
+        padding: 24px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #ffffff;
+      }
+
+      @media (min-width: 768px) {
+        .planner-thread {
+          height: 480px;
+          padding: 28px 24px;
+        }
+      }
+
+      .chat-msg {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-width: 88%;
+      }
+
+      .chat-msg--user {
+        align-self: flex-end;
+        align-items: flex-end;
+      }
+
+      .chat-msg--model {
+        align-self: flex-start;
+        align-items: flex-start;
+      }
+
+      .chat-msg-meta {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+      }
+
+      .chat-msg-body {
+        padding: 16px 18px;
+        font-size: 15px;
+        line-height: 1.6;
+        letter-spacing: -0.01em;
+        border-radius: 4px;
+        word-break: break-word;
+      }
+
+      .chat-msg--user .chat-msg-body {
+        background-color: #0a0a0a;
+        color: #ffffff;
+      }
+
+      .chat-msg--model .chat-msg-body {
+        background-color: #f7f7f7;
+        color: var(--text-primary);
+        border: 1px solid var(--divider);
+      }
+
+      .chat-msg-body p + p,
+      .chat-msg-body ul + p,
+      .chat-msg-body ol + p,
+      .chat-msg-body p + ul,
+      .chat-msg-body p + ol {
+        margin-top: 10px;
+      }
+
+      .chat-msg-body h4 {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-top: 12px;
+        margin-bottom: 6px;
+      }
+
+      .chat-msg-body h4:first-child {
+        margin-top: 0;
+      }
+
+      .chat-msg-body ul,
+      .chat-msg-body ol {
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .chat-msg-body code {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        background-color: rgba(0, 0, 0, 0.06);
+        padding: 1px 5px;
+        border-radius: 2px;
+      }
+
+      .chat-error-banner {
+        padding: 12px 16px;
+        border: 1px solid #0a0a0a;
+        background-color: #fafafa;
+        color: #0a0a0a;
+        font-size: 14px;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .chat-retry-btn {
+        padding: 6px 12px;
+        min-height: 40px;
+        border: 1px solid #0a0a0a;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        white-space: nowrap;
+      }
+
+      .planner-composer {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+        padding: 16px 20px;
+        border-top: 1px solid var(--divider);
+        background-color: #ffffff;
+      }
+
+      .planner-input {
+        flex: 1;
+        min-height: 48px;
+        max-height: 140px;
+        padding: 12px 14px;
+        border: 1px solid var(--divider);
+        background-color: #ffffff;
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-size: 15px;
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+        resize: vertical;
+        cursor: text;
+      }
+
+      .planner-input:focus {
+        outline: 1px solid #0a0a0a;
+        border-color: #0a0a0a;
+      }
+
+      .planner-send-btn {
+        min-height: 48px;
+        padding: 0 24px;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        border: 1px solid #0a0a0a;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: opacity 200ms var(--ease-editorial);
+      }
+
+      .planner-send-btn:hover:not(:disabled) {
+        opacity: 0.85;
+      }
+
+      .planner-send-btn:disabled {
+        opacity: 0.45;
+      }
+
+      .modal-plan-btn {
+        margin-top: 8px;
+        padding: 12px 18px;
+        min-height: 44px;
+        border: 1px solid #0a0a0a;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        text-align: center;
+        white-space: nowrap;
+        transition:
+          background-color 200ms var(--ease-editorial),
+          color 200ms var(--ease-editorial);
+      }
+
+      .modal-plan-btn:hover {
+        background-color: #ffffff;
+        color: #0a0a0a;
+      }
+
+      .ask-cev-fab {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 85;
+        height: 44px;
+        padding: 0 18px;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+        transition:
+          opacity 300ms var(--ease-editorial),
+          transform 300ms var(--ease-editorial);
+      }
+
+      .ask-cev-fab.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+      }
+
+      /* Behind the Website Section */
+      .behind-section {
+        max-width: 1344px;
+        margin: 0 auto;
+        padding: 0 24px 128px;
+        scroll-margin-top: 96px;
+      }
+
+      @media (min-width: 768px) {
+        .behind-section {
+          padding: 0 48px 144px;
+        }
+      }
+
+      .behind-panel {
+        border: 1px solid var(--divider);
+        background-color: #fafafa;
+        padding: 32px 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        align-items: end;
+      }
+
+      @media (min-width: 768px) {
+        .behind-panel {
+          padding: 48px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .behind-panel {
+          grid-template-columns: 1.35fr 1fr;
+          gap: 56px;
+        }
+      }
+
+      .behind-heading {
+        font-size: clamp(28px, 3.6vw, 44px);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        color: var(--text-primary);
+        margin-bottom: 18px;
+      }
+
+      .behind-description {
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--text-secondary);
+        max-width: 60ch;
+      }
+
+      .behind-aside {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .behind-roster {
+        list-style: none;
+        border-top: 1px solid var(--divider);
+      }
+
+      .behind-roster-item {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .behind-roster-name {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+      }
+
+      .behind-roster-role {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .behind-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+        min-height: 52px;
+        padding: 14px 20px;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        border: 1px solid #0a0a0a;
+        text-decoration: none;
+        text-align: left;
+        transition:
+          background-color 250ms var(--ease-editorial),
+          color 250ms var(--ease-editorial),
+          transform 250ms var(--ease-editorial);
+      }
+
+      .behind-cta-btn:hover {
+        background-color: #ffffff;
+        color: #0a0a0a;
+        transform: translateY(-2px);
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .marquee-track {
           animation: none;
@@ -1179,9 +1677,21 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="#planner" class="nav-link">
+            <span class="nav-link-title">Trip Planner · cev</span>
+            <span class="nav-link-index mono-meta">05 / AI CONCIERGE</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="./team.html" class="nav-link">
+            <span class="nav-link-title">Behind the Website</span>
+            <span class="nav-link-index mono-meta">06 / 03 CREATORS</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="#footer" class="nav-link">
             <span class="nav-link-title">Local Time &amp; Index</span>
-            <span class="nav-link-index mono-meta">05 / UTC+8</span>
+            <span class="nav-link-index mono-meta">07 / UTC+8</span>
           </a>
         </li>
       </ul>
@@ -1240,7 +1750,153 @@
         </div>
         <div class="destination-grid" id="destination-grid"></div>
       </section>
+
+      <!-- cev AI Trip Planner Section -->
+      <section id="planner" class="planner-section" aria-label="cev AI Trip Planner">
+        <div class="section-bar">
+          <h2 class="section-title">Plan With cev</h2>
+          <span class="section-count mono-meta">SHANGHAI TRIP CONCIERGE</span>
+        </div>
+        <div class="planner-layout">
+          <div class="planner-sidebar">
+            <p class="planner-intro">
+              Ask <strong>cev</strong> to craft day-by-day Shanghai itineraries, connect stops by Metro line, suggest neighborhood dining and tea rooms, or pace your trip by time of day.
+            </p>
+            <div class="planner-pref-group">
+              <p class="planner-pref-label mono-meta">TRIP DURATION</p>
+              <div class="planner-segments" role="group" aria-label="Trip duration preference">
+                <button type="button" class="planner-segment-btn" data-pref-group="duration" data-pref-val="1 Day">1 Day</button>
+                <button type="button" class="planner-segment-btn is-active" data-pref-group="duration" data-pref-val="3 Days">3 Days</button>
+                <button type="button" class="planner-segment-btn" data-pref-group="duration" data-pref-val="5 Days">5 Days</button>
+              </div>
+            </div>
+            <div class="planner-pref-group">
+              <p class="planner-pref-label mono-meta">TRAVEL PACE</p>
+              <div class="planner-segments" role="group" aria-label="Travel pace preference">
+                <button type="button" class="planner-segment-btn" data-pref-group="pace" data-pref-val="Relaxed">Relaxed</button>
+                <button type="button" class="planner-segment-btn is-active" data-pref-group="pace" data-pref-val="Balanced">Balanced</button>
+                <button type="button" class="planner-segment-btn" data-pref-group="pace" data-pref-val="Packed">Packed</button>
+              </div>
+            </div>
+            <div class="planner-pref-group">
+              <p class="planner-pref-label mono-meta">QUICK TRIP PROMPTS</p>
+              <div class="planner-prompts">
+                <button
+                  type="button"
+                  class="planner-prompt-btn"
+                  data-prompt="Build a 3-day first-time Shanghai itinerary linking The Bund, Yu Garden, Lujiazui, and the Former French Concession by Metro."
+                >
+                  <span>3-day classic Shanghai route by Metro</span>
+                  <span class="planner-prompt-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button
+                  type="button"
+                  class="planner-prompt-btn"
+                  data-prompt="Plan an evening walk from Nanjing Road Pedestrian to The Bund with local dinner and riverside view tips."
+                >
+                  <span>Evening walk: Nanjing Road to The Bund</span>
+                  <span class="planner-prompt-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button
+                  type="button"
+                  class="planner-prompt-btn"
+                  data-prompt="How should I plan a half-day trip to Zhujiajiao Water Town on Metro Line 17, including boat timing and snacks?"
+                >
+                  <span>Half-day escape to Zhujiajiao Water Town</span>
+                  <span class="planner-prompt-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button
+                  type="button"
+                  class="planner-prompt-btn"
+                  data-prompt="What are essential Shanghai travel tips for first-time visitors (Alipay, Metro pass, Maglev from Pudong Airport)?"
+                >
+                  <span>First-timer essentials: Metro, Maglev &amp; apps</span>
+                  <span class="planner-prompt-arrow" aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="planner-console">
+            <div class="planner-console-header">
+              <div class="planner-console-title">
+                <span class="planner-bot-name">cev</span>
+                <span class="planner-bot-role mono-meta">TRIP PLANNING ASSISTANT</span>
+              </div>
+              <button id="cev-clear" type="button" class="planner-clear-btn mono-meta" disabled>
+                CLEAR CHAT
+              </button>
+            </div>
+            <div
+              id="cev-thread"
+              class="planner-thread"
+              role="log"
+              aria-live="polite"
+              aria-label="Conversation with cev"
+            ></div>
+            <form id="cev-form" class="planner-composer">
+              <textarea
+                id="cev-input"
+                class="planner-input"
+                rows="2"
+                placeholder="Ask cev to plan your Shanghai trip, metro routes, food stops, or timing..."
+                aria-label="Message cev"
+              ></textarea>
+              <button id="cev-send" type="submit" class="planner-send-btn mono-meta">
+                SEND
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Behind the Website Section -->
+      <section id="behind" class="behind-section" aria-label="Behind the Website Creators">
+        <div class="section-bar">
+          <h2 class="section-title">Behind the Website</h2>
+          <span class="section-count mono-meta">03 CREATORS · CVs</span>
+        </div>
+        <div class="behind-panel">
+          <div>
+            <h3 class="behind-heading">Three student creators behind the guide.</h3>
+            <p class="behind-description">
+              Behind the Website brings together the three creators who shaped this Shanghai exploration guide—combining Mandarin localization, creative direction, technical prototyping, and visual storytelling. Open our dedicated team page to read each member’s full profile and download their individual PDF CVs.
+            </p>
+          </div>
+          <div class="behind-aside">
+            <ul class="behind-roster" aria-label="Creators behind the website">
+              <li class="behind-roster-item">
+                <span class="behind-roster-name">Calvin Pratama</span>
+                <span class="behind-roster-role mono-meta">01 / TRANSLATION &amp; PM</span>
+              </li>
+              <li class="behind-roster-item">
+                <span class="behind-roster-name">Vyonne Calista Youvanka</span>
+                <span class="behind-roster-role mono-meta">02 / MANDARIN &amp; CULTURE</span>
+              </li>
+              <li class="behind-roster-item">
+                <span class="behind-roster-name">Elianna Gabriella Tanalin</span>
+                <span class="behind-roster-role mono-meta">03 / DESIGN &amp; TECH</span>
+              </li>
+            </ul>
+            <a href="./team.html" class="behind-cta-btn mono-meta">
+              <span>MEET THE TEAM &amp; DOWNLOAD CVs</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- Floating Quick Jump to cev -->
+    <button
+      id="ask-cev-fab"
+      type="button"
+      class="ask-cev-fab mono-meta is-hidden"
+      aria-label="Jump to cev AI Trip Planner"
+    >
+      <span>ASK CEV</span>
+      <span aria-hidden="true">↓</span>
+    </button>
 
     <!-- Editorial Briefing Modal -->
     <div
@@ -1280,6 +1936,9 @@
               <p class="modal-label mono-meta">EXPERIENCE HIGHLIGHTS</p>
               <ul id="modal-highlights" class="modal-highlights"></ul>
             </div>
+            <button id="modal-plan-cev" type="button" class="modal-plan-btn mono-meta">
+              PLAN THIS STOP WITH CEV
+            </button>
           </div>
         </div>
       </div>
@@ -2011,11 +2670,13 @@
 
         // 8. Destination Briefing Modal
         let lastFocusedEl = null;
+        let activeModalDest = null;
 
         function openModal(destId) {
           const destIndex = DESTINATIONS.findIndex((d) => d.id === destId);
           if (destIndex === -1) return;
           const dest = DESTINATIONS[destIndex];
+          activeModalDest = dest;
           lastFocusedEl = document.activeElement;
 
           document.getElementById('modal-code').textContent = dest.code;
@@ -2223,6 +2884,359 @@
           }
 
           requestAnimationFrame(animateCursor);
+        }
+
+        // 12. cev AI Trip Planner (Multi-Turn Chat via /api/chat)
+        const plannerSection = document.getElementById('planner');
+        const cevThread = document.getElementById('cev-thread');
+        const cevForm = document.getElementById('cev-form');
+        const cevInput = document.getElementById('cev-input');
+        const cevSendBtn = document.getElementById('cev-send');
+        const cevClearBtn = document.getElementById('cev-clear');
+        const askCevFab = document.getElementById('ask-cev-fab');
+        const modalPlanCevBtn = document.getElementById('modal-plan-cev');
+
+        const cevPreferences = {
+          duration: '3 Days',
+          pace: 'Balanced',
+        };
+        let chatHistory = [];
+        let isStreaming = false;
+        let lastFailedPrompt = '';
+
+        function escapeHtml(str) {
+          return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        }
+
+        function formatInlineMarkdown(escapedLine) {
+          return escapedLine
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/`([^`]+?)`/g, '<code>$1</code>');
+        }
+
+        function renderChatMarkdown(rawText) {
+          const lines = String(rawText || '').replace(/\r\n/g, '\n').split('\n');
+          const htmlParts = [];
+          let listType = null;
+
+          function closeList() {
+            if (listType) {
+              htmlParts.push('</' + listType + '>');
+              listType = null;
+            }
+          }
+
+          lines.forEach((line) => {
+            const trimmed = line.trim();
+            if (!trimmed) {
+              closeList();
+              return;
+            }
+
+            const headingMatch = trimmed.match(/^#{1,4}\s+(.+)$/);
+            if (headingMatch) {
+              closeList();
+              htmlParts.push('<h4>' + formatInlineMarkdown(escapeHtml(headingMatch[1])) + '</h4>');
+              return;
+            }
+
+            const ulMatch = trimmed.match(/^[-*]\s+(.+)$/);
+            if (ulMatch) {
+              if (listType !== 'ul') {
+                closeList();
+                listType = 'ul';
+                htmlParts.push('<ul>');
+              }
+              htmlParts.push('<li>' + formatInlineMarkdown(escapeHtml(ulMatch[1])) + '</li>');
+              return;
+            }
+
+            const olMatch = trimmed.match(/^\d+\.\s+(.+)$/);
+            if (olMatch) {
+              if (listType !== 'ol') {
+                closeList();
+                listType = 'ol';
+                htmlParts.push('<ol>');
+              }
+              htmlParts.push('<li>' + formatInlineMarkdown(escapeHtml(olMatch[1])) + '</li>');
+              return;
+            }
+
+            closeList();
+            htmlParts.push('<p>' + formatInlineMarkdown(escapeHtml(trimmed)) + '</p>');
+          });
+
+          closeList();
+          return htmlParts.join('');
+        }
+
+        function createMessageElement(role, text, isPending) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'chat-msg chat-msg--' + (role === 'user' ? 'user' : 'model');
+
+          const meta = document.createElement('span');
+          meta.className = 'chat-msg-meta';
+          meta.textContent = role === 'user' ? 'YOU' : 'CEV';
+
+          const body = document.createElement('div');
+          body.className = 'chat-msg-body';
+
+          if (role === 'user') {
+            body.textContent = text;
+          } else if (isPending && !text) {
+            body.innerHTML = '<p>cev is planning your route...</p>';
+          } else {
+            body.innerHTML = renderChatMarkdown(text);
+          }
+
+          wrapper.appendChild(meta);
+          wrapper.appendChild(body);
+          return { wrapper, body };
+        }
+
+        function renderInitialGreeting() {
+          cevThread.innerHTML = '';
+          const greeting =
+            'Hello — I’m **cev**, your Shanghai trip planner. Share how many days you have, your preferred pace, or pick a prompt on the left and I’ll map out stops, Metro exits, food ideas, and timing.';
+          const el = createMessageElement('model', greeting, false);
+          cevThread.appendChild(el.wrapper);
+          cevClearBtn.disabled = true;
+        }
+
+        function scrollThreadToBottom() {
+          cevThread.scrollTop = cevThread.scrollHeight;
+        }
+
+        function removeErrorBanners() {
+          cevThread.querySelectorAll('.chat-error-banner').forEach((el) => el.remove());
+        }
+
+        function showChatError(message, promptToRetry) {
+          removeErrorBanners();
+          const banner = document.createElement('div');
+          banner.className = 'chat-error-banner';
+
+          const msgSpan = document.createElement('span');
+          msgSpan.textContent = message;
+          banner.appendChild(msgSpan);
+
+          if (promptToRetry) {
+            const retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.className = 'chat-retry-btn mono-meta';
+            retryBtn.textContent = 'RETRY';
+            retryBtn.addEventListener('click', function () {
+              banner.remove();
+              sendToCev(promptToRetry, true);
+            });
+            banner.appendChild(retryBtn);
+          }
+
+          cevThread.appendChild(banner);
+          scrollThreadToBottom();
+        }
+
+        async function sendToCev(rawPrompt, isRetry) {
+          const text = String(rawPrompt || '').trim();
+          if (!text || isStreaming) return;
+
+          removeErrorBanners();
+          isStreaming = true;
+          cevSendBtn.disabled = true;
+          cevInput.disabled = true;
+          lastFailedPrompt = '';
+
+          if (!isRetry) {
+            chatHistory.push({ role: 'user', text: text });
+            const userEl = createMessageElement('user', text, false);
+            cevThread.appendChild(userEl.wrapper);
+          }
+
+          cevClearBtn.disabled = false;
+          const modelMsg = createMessageElement('model', '', true);
+          cevThread.appendChild(modelMsg.wrapper);
+          scrollThreadToBottom();
+
+          let accumulatedText = '';
+
+          try {
+            const response = await fetch('/api/chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                messages: chatHistory,
+                preferences: cevPreferences,
+              }),
+            });
+
+            if (!response.ok) {
+              let errMsg = 'Unable to reach cev right now.';
+              try {
+                const errJson = await response.json();
+                if (errJson && errJson.error) errMsg = errJson.error;
+              } catch (_e) {
+                // ignore JSON parse failure
+              }
+              throw new Error(errMsg);
+            }
+
+            if (!response.body) {
+              throw new Error('Streaming response unavailable.');
+            }
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+
+            while (true) {
+              const result = await reader.read();
+              if (result.done) break;
+              buffer += decoder.decode(result.value, { stream: true });
+
+              const events = buffer.split('\n\n');
+              buffer = events.pop() || '';
+
+              for (let i = 0; i < events.length; i++) {
+                const lines = events[i].split('\n');
+                for (let j = 0; j < lines.length; j++) {
+                  const line = lines[j].trim();
+                  if (!line.startsWith('data:')) continue;
+                  const payloadStr = line.slice(5).trim();
+                  if (!payloadStr) continue;
+                  const payload = JSON.parse(payloadStr);
+                  if (payload.type === 'delta' && payload.text) {
+                    accumulatedText += payload.text;
+                    modelMsg.body.innerHTML = renderChatMarkdown(accumulatedText);
+                    scrollThreadToBottom();
+                  } else if (payload.type === 'error') {
+                    throw new Error(payload.message || 'cev encountered an error.');
+                  }
+                }
+              }
+            }
+
+            if (accumulatedText.trim()) {
+              chatHistory.push({ role: 'model', text: accumulatedText });
+            } else {
+              modelMsg.wrapper.remove();
+              throw new Error('cev returned an empty response. Please try again.');
+            }
+          } catch (err) {
+            if (!accumulatedText.trim()) {
+              modelMsg.wrapper.remove();
+            }
+            lastFailedPrompt = text;
+            const errMessage = err instanceof Error ? err.message : 'Unable to reach cev right now.';
+            showChatError(errMessage, lastFailedPrompt);
+          } finally {
+            isStreaming = false;
+            cevSendBtn.disabled = false;
+            cevInput.disabled = false;
+            cevInput.focus();
+            scrollThreadToBottom();
+          }
+        }
+
+        renderInitialGreeting();
+
+        cevForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const val = cevInput.value.trim();
+          if (!val || isStreaming) return;
+          cevInput.value = '';
+          sendToCev(val, false);
+        });
+
+        cevInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            const val = cevInput.value.trim();
+            if (!val || isStreaming) return;
+            cevInput.value = '';
+            sendToCev(val, false);
+          }
+        });
+
+        cevClearBtn.addEventListener('click', function () {
+          if (isStreaming) return;
+          chatHistory = [];
+          lastFailedPrompt = '';
+          renderInitialGreeting();
+          cevInput.focus();
+        });
+
+        document.querySelectorAll('.planner-segment-btn').forEach((btn) => {
+          btn.addEventListener('click', function () {
+            const group = btn.dataset.prefGroup;
+            const val = btn.dataset.prefVal;
+            if (!group || !val) return;
+            cevPreferences[group] = val;
+            document
+              .querySelectorAll('.planner-segment-btn[data-pref-group="' + group + '"]')
+              .forEach((sib) => sib.classList.remove('is-active'));
+            btn.classList.add('is-active');
+          });
+        });
+
+        document.querySelectorAll('.planner-prompt-btn').forEach((btn) => {
+          btn.addEventListener('click', function () {
+            const prompt = btn.dataset.prompt;
+            if (!prompt) return;
+            sendToCev(prompt, false);
+          });
+        });
+
+        if (modalPlanCevBtn) {
+          modalPlanCevBtn.addEventListener('click', function () {
+            const destTitle = activeModalDest ? activeModalDest.title : 'Shanghai';
+            closeModal();
+            if (plannerSection) {
+              plannerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            sendToCev(
+              'Plan a visit around ' +
+                destTitle +
+                ', including best timing, Metro access, and nearby places or local food stops to pair with it.',
+              false
+            );
+          });
+        }
+
+        if (askCevFab && plannerSection) {
+          askCevFab.addEventListener('click', function () {
+            plannerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(function () {
+              cevInput.focus();
+            }, 400);
+          });
+
+          let plannerVisible = false;
+          function updateFabVisibility() {
+            const curtainActive = !entryCurtain.classList.contains('is-dismissed');
+            askCevFab.classList.toggle('is-hidden', curtainActive || plannerVisible);
+          }
+
+          if ('IntersectionObserver' in window) {
+            const fabObserver = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  plannerVisible = entry.isIntersecting;
+                  updateFabVisibility();
+                });
+              },
+              { threshold: 0.1 }
+            );
+            fabObserver.observe(plannerSection);
+          }
+
+          enterWithSoundBtn.addEventListener('click', updateFabVisibility);
+          enterSilentlyBtn.addEventListener('click', updateFabVisibility);
+          updateFabVisibility();
         }
       })();
     </script>

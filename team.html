@@ -1,0 +1,1799 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Behind the Website — Creators &amp; CVs | Shanghai Destination Guide</title>
+    <meta
+      name="description"
+      content="Meet the three creators behind the Shanghai Destination Guide: Calvin Pratama, Vyonne Calista Youvanka, and Elianna Gabriella Tanalin. Explore their profiles and download their PDF CVs."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-primary: #ffffff;
+        --text-primary: #000000;
+        --text-secondary: #525252;
+        --text-muted: #737373;
+        --divider: rgba(0, 0, 0, 0.1);
+        --surface-soft: #f7f7f7;
+        --footer-bg: #0a0a0a;
+        --footer-text: #ffffff;
+        --footer-divider: rgba(255, 255, 255, 0.1);
+        --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        line-height: 1.5;
+        overflow-x: hidden;
+        cursor: none;
+      }
+
+      body.is-locked {
+        overflow: hidden;
+      }
+
+      a,
+      button {
+        cursor: none;
+        font-family: inherit;
+      }
+
+      button {
+        background: none;
+        border: none;
+        color: inherit;
+      }
+
+      button:focus-visible,
+      a:focus-visible {
+        outline: 1px solid currentColor;
+        outline-offset: 4px;
+      }
+
+      .mono-meta {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        line-height: 1.4;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Custom Interactive Difference Cursor */
+      #custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        background-color: #ffffff;
+        border: 1px solid #000000;
+        mix-blend-mode: difference;
+        opacity: 0;
+        transform: translate3d(-100px, -100px, 0) scale(1);
+        transition: opacity 500ms var(--ease-editorial);
+        will-change: transform;
+      }
+
+      #custom-cursor.is-visible {
+        opacity: 1;
+      }
+
+      @media (hover: none), (pointer: coarse) {
+        body,
+        a,
+        button {
+          cursor: auto;
+        }
+        #custom-cursor {
+          display: none !important;
+        }
+      }
+
+      /* Fixed Navigation Header */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        mix-blend-mode: difference;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        pointer-events: none;
+      }
+
+      @media (min-width: 768px) {
+        .site-header {
+          padding: 24px 48px;
+        }
+      }
+
+      .site-header a,
+      .site-header button {
+        pointer-events: auto;
+      }
+
+      .brand-logo {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        line-height: 1;
+        color: #ffffff;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .header-back-link {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 8px 4px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        transition: opacity 300ms var(--ease-editorial);
+      }
+
+      .header-back-link:hover {
+        opacity: 0.65;
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+      }
+
+      .menu-plus-icon {
+        width: 24px;
+        height: 24px;
+        display: block;
+        transition: transform 500ms var(--ease-editorial);
+      }
+
+      .menu-toggle[aria-expanded='true'] .menu-plus-icon {
+        transform: rotate(45deg);
+      }
+
+      /* Full-screen Monochrome Navigation Overlay */
+      #nav-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 112px 24px 36px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-16px);
+        transition:
+          opacity 600ms var(--ease-editorial),
+          transform 600ms var(--ease-editorial),
+          visibility 600ms var(--ease-editorial);
+      }
+
+      @media (min-width: 768px) {
+        #nav-overlay {
+          padding: 120px 48px 48px;
+        }
+      }
+
+      #nav-overlay.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        max-width: 960px;
+      }
+
+      .nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .nav-item:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 20px 0;
+        color: #ffffff;
+        text-decoration: none;
+        transition:
+          transform 500ms var(--ease-editorial),
+          color 500ms var(--ease-editorial);
+      }
+
+      .nav-link:hover {
+        transform: translateX(14px);
+        color: #a3a3a3;
+      }
+
+      .nav-link-title {
+        font-size: clamp(26px, 4.2vw, 48px);
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        line-height: 0.95;
+      }
+
+      .nav-link-index {
+        color: #737373;
+        white-space: nowrap;
+      }
+
+      .nav-overlay-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #a3a3a3;
+      }
+
+      /* Hero Banner */
+      .team-hero {
+        max-width: 1344px;
+        margin: 0 auto;
+        padding: 136px 24px 56px;
+      }
+
+      @media (min-width: 768px) {
+        .team-hero {
+          padding: 152px 48px 72px;
+        }
+      }
+
+      .hero-kicker {
+        color: var(--text-muted);
+        margin-bottom: 20px;
+      }
+
+      .team-headline {
+        font-size: clamp(44px, 7.5vw, 112px);
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        line-height: 0.92;
+        color: var(--text-primary);
+        text-wrap: balance;
+        margin-bottom: 28px;
+      }
+
+      .line-mask {
+        display: block;
+        overflow: hidden;
+      }
+
+      .line-inner {
+        display: block;
+        transform: translateY(105%);
+        transition: transform 900ms var(--ease-editorial);
+      }
+
+      body.is-revealed .line-inner {
+        transform: translateY(0%);
+      }
+
+      .team-lead {
+        font-size: clamp(18px, 2vw, 22px);
+        line-height: 1.5;
+        color: var(--text-secondary);
+        max-width: 68ch;
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 800ms var(--ease-editorial) 240ms,
+          transform 800ms var(--ease-editorial) 240ms;
+      }
+
+      body.is-revealed .team-lead {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Sticky Jump Roster Bar */
+      .roster-nav-wrap {
+        border-top: 1px solid var(--divider);
+        border-bottom: 1px solid var(--divider);
+        background-color: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 60;
+      }
+
+      .roster-nav {
+        max-width: 1344px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (min-width: 768px) {
+        .roster-nav {
+          padding: 0 48px;
+        }
+      }
+
+      .roster-tab {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 12px;
+        min-height: 52px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        border-right: 1px solid var(--divider);
+        transition:
+          background-color 250ms var(--ease-editorial),
+          color 250ms var(--ease-editorial);
+      }
+
+      .roster-tab:last-child {
+        border-right: none;
+      }
+
+      .roster-tab:hover {
+        background-color: var(--surface-soft);
+        color: var(--text-primary);
+      }
+
+      .roster-tab.is-active {
+        background-color: #0a0a0a;
+        color: #ffffff;
+      }
+
+      .roster-tab-name {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .roster-tab-index {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        opacity: 0.7;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 639px) {
+        .roster-tab {
+          padding: 14px 8px;
+          justify-content: center;
+        }
+        .roster-tab-index {
+          display: none;
+        }
+        .roster-tab-name {
+          font-size: 13px;
+        }
+      }
+
+      /* Creator CV Sections */
+      .profiles-container {
+        max-width: 1344px;
+        margin: 0 auto;
+        padding: 0 24px 96px;
+      }
+
+      @media (min-width: 768px) {
+        .profiles-container {
+          padding: 0 48px 128px;
+        }
+      }
+
+      .creator-section {
+        padding: 88px 0;
+        border-bottom: 1px solid var(--divider);
+        scroll-margin-top: 64px;
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 800ms var(--ease-editorial),
+          transform 800ms var(--ease-editorial);
+      }
+
+      .creator-section.is-inview {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .creator-section:last-child {
+        border-bottom: none;
+      }
+
+      .creator-header {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--divider);
+        margin-bottom: 40px;
+      }
+
+      @media (min-width: 900px) {
+        .creator-header {
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+      }
+
+      .creator-index {
+        color: var(--text-muted);
+        margin-bottom: 10px;
+      }
+
+      .creator-name {
+        font-size: clamp(34px, 4.5vw, 56px);
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        line-height: 0.96;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+      }
+
+      .creator-headline {
+        font-size: 16px;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      .cv-download-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px 22px;
+        min-height: 52px;
+        max-width: 100%;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        border: 1px solid #0a0a0a;
+        text-decoration: none;
+        text-align: center;
+        transition:
+          background-color 250ms var(--ease-editorial),
+          color 250ms var(--ease-editorial),
+          transform 250ms var(--ease-editorial);
+      }
+
+      .cv-download-btn:hover {
+        background-color: #ffffff;
+        color: #0a0a0a;
+        transform: translateY(-2px);
+      }
+
+      .cv-download-btn:active {
+        transform: translateY(0);
+      }
+
+      .creator-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      @media (min-width: 1024px) {
+        .creator-grid {
+          grid-template-columns: 360px 1fr;
+          gap: 56px;
+        }
+      }
+
+      .creator-aside {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .aside-block {
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .aside-block:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .block-kicker {
+        color: var(--text-muted);
+        margin-bottom: 12px;
+      }
+
+      .aside-bio {
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--text-secondary);
+      }
+
+      .contact-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 14px;
+        color: var(--text-primary);
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-label {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      .skills-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .skills-list li {
+        font-size: 14px;
+        color: var(--text-secondary);
+        padding-left: 16px;
+        position: relative;
+      }
+
+      .skills-list li::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: var(--text-muted);
+      }
+
+      /* Interactive Filter Tabs for CV Details */
+      .cv-main {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .cv-filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid var(--divider);
+      }
+
+      .cv-filter-btn {
+        flex: 1;
+        min-width: 110px;
+        min-height: 44px;
+        padding: 10px 14px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        border-right: 1px solid var(--divider);
+        white-space: nowrap;
+        transition:
+          background-color 200ms var(--ease-editorial),
+          color 200ms var(--ease-editorial);
+      }
+
+      .cv-filter-btn:last-child {
+        border-right: none;
+      }
+
+      .cv-filter-btn:hover {
+        background-color: var(--surface-soft);
+        color: var(--text-primary);
+      }
+
+      .cv-filter-btn.is-active {
+        background-color: #0a0a0a;
+        color: #ffffff;
+      }
+
+      .cv-panels {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .cv-group.is-hidden {
+        display: none;
+      }
+
+      .cv-group-heading {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: var(--text-primary);
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .cv-entries {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .cv-entry {
+        padding: 20px;
+        background-color: var(--surface-soft);
+        border: 1px solid var(--divider);
+        transition:
+          transform 300ms var(--ease-editorial),
+          background-color 300ms var(--ease-editorial),
+          border-color 300ms var(--ease-editorial);
+      }
+
+      .cv-entry:hover {
+        transform: translateX(6px);
+        background-color: #ffffff;
+        border-color: rgba(0, 0, 0, 0.28);
+      }
+
+      .cv-entry-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px 16px;
+        margin-bottom: 6px;
+      }
+
+      .cv-entry-title {
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+      }
+
+      .cv-entry-period {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .cv-entry-org {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+      }
+
+      .cv-entry-bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .cv-entry-bullets li {
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--text-secondary);
+        padding-left: 16px;
+        position: relative;
+      }
+
+      .cv-entry-bullets li::before {
+        content: '·';
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-bg);
+        color: var(--footer-text);
+        padding: 80px 24px 36px;
+      }
+
+      @media (min-width: 768px) {
+        .site-footer {
+          padding: 96px 48px 40px;
+        }
+      }
+
+      .footer-inner {
+        max-width: 1344px;
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding-bottom: 64px;
+      }
+
+      @media (min-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          gap: 40px;
+        }
+      }
+
+      .footer-brand-col {
+        grid-column: span 1;
+      }
+
+      @media (min-width: 768px) {
+        .footer-brand-col {
+          grid-column: span 2;
+        }
+      }
+
+      .footer-brand {
+        font-size: clamp(40px, 5vw, 64px);
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        line-height: 0.9;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .footer-bio {
+        color: #a3a3a3;
+        max-width: 440px;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .footer-heading {
+        color: #737373;
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-link {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 15px;
+        display: inline-block;
+        padding: 2px 0;
+        transition:
+          color 500ms var(--ease-editorial),
+          transform 500ms var(--ease-editorial);
+      }
+
+      .footer-link:hover {
+        color: #a3a3a3;
+        transform: translateX(6px);
+      }
+
+      .telemetry-clock {
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.08em;
+        color: #ffffff;
+        margin-bottom: 12px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .telemetry-coords {
+        color: #a3a3a3;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--footer-divider);
+        padding-top: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 14px;
+        color: #a3a3a3;
+      }
+
+      @media (min-width: 768px) {
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .line-inner,
+        .team-lead,
+        .creator-section {
+          transform: none !important;
+          opacity: 1 !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body id="top">
+    <!-- Custom Difference Cursor -->
+    <div id="custom-cursor" aria-hidden="true"></div>
+
+    <!-- Fixed Navigation Header -->
+    <header class="site-header">
+      <a href="./index.html?autostart=1" class="brand-logo" aria-label="Shanghai Guide Home">sh</a>
+      <div class="header-controls">
+        <a href="./index.html?autostart=1" class="header-back-link mono-meta">
+          ← BACK TO GUIDE
+        </a>
+        <button
+          id="menu-toggle"
+          type="button"
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav-overlay"
+          aria-label="Open navigation menu"
+        >
+          <svg
+            class="menu-plus-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            aria-hidden="true"
+          >
+            <line x1="12" y1="3" x2="12" y2="21"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Full-Screen Monochrome Navigation Overlay -->
+    <nav id="nav-overlay" aria-label="Team Page Navigation" aria-hidden="true">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="./index.html?autostart=1" class="nav-link">
+            <span class="nav-link-title">Shanghai Guide</span>
+            <span class="nav-link-index mono-meta">00 / MAIN SITE</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#person-calvin" class="nav-link">
+            <span class="nav-link-title">Calvin Pratama</span>
+            <span class="nav-link-index mono-meta">01 / CREATOR</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#person-vyonne" class="nav-link">
+            <span class="nav-link-title">Vyonne Calista Youvanka</span>
+            <span class="nav-link-index mono-meta">02 / CREATOR</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#person-elianna" class="nav-link">
+            <span class="nav-link-title">Elianna Gabriella Tanalin</span>
+            <span class="nav-link-index mono-meta">03 / CREATOR</span>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-overlay-footer mono-meta">
+        <span>BEHIND THE WEBSITE · 03 PROFILES</span>
+        <span id="overlay-clock">00:00:00 CST</span>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Intro -->
+      <section class="team-hero">
+        <p class="hero-kicker mono-meta">BEHIND THE WEBSITE · 03 CREATORS · CURRICULUM VITAE</p>
+        <h1 class="team-headline">
+          <span class="line-mask"><span class="line-inner" style="transition-delay: 0ms">Behind the</span></span>
+          <span class="line-mask"><span class="line-inner" style="transition-delay: 90ms">Website.</span></span>
+        </h1>
+        <p class="team-lead">
+          Meet the three student creators behind the Shanghai Destination Guide. Browse each member’s academic background, leadership experience, achievements, and download their complete PDF curriculum vitae below.
+        </p>
+      </section>
+
+      <!-- Sticky Quick-Jump Roster Bar -->
+      <div class="roster-nav-wrap">
+        <nav class="roster-nav" aria-label="Jump to creator CV section">
+          <a href="#person-calvin" class="roster-tab is-active" data-roster="person-calvin">
+            <span class="roster-tab-name">Calvin Pratama</span>
+            <span class="roster-tab-index">01</span>
+          </a>
+          <a href="#person-vyonne" class="roster-tab" data-roster="person-vyonne">
+            <span class="roster-tab-name">Vyonne Calista Youvanka</span>
+            <span class="roster-tab-index">02</span>
+          </a>
+          <a href="#person-elianna" class="roster-tab" data-roster="person-elianna">
+            <span class="roster-tab-name">Elianna Gabriella Tanalin</span>
+            <span class="roster-tab-index">03</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- 3 Separate Creator CV Sections -->
+      <div class="profiles-container">
+        <!-- SECTION 01: CALVIN PRATAMA -->
+        <section id="person-calvin" class="creator-section" aria-labelledby="calvin-heading">
+          <div class="creator-header">
+            <div>
+              <p class="creator-index mono-meta">01 / 03 · CURRICULUM VITAE</p>
+              <h2 id="calvin-heading" class="creator-name">Calvin Pratama</h2>
+              <p class="creator-headline">
+                High School Student · Multilingual Achiever · 4× Competition Medalist
+              </p>
+            </div>
+            <a
+              href="./assets/aistudio/CV_Calvin_Pratama_9ee4dc50.pdf"
+              data-pdf-file="CV_Calvin_Pratama_9ee4dc50.pdf"
+              download="CV_Calvin_Pratama.pdf"
+              class="cv-download-btn mono-meta"
+            >
+              <span>DOWNLOAD CALVIN'S CV (PDF)</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div class="creator-grid">
+            <aside class="creator-aside">
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">ABOUT ME</p>
+                <p class="aside-bio">
+                  High school student with experience in organizational activities, leadership, and event coordination. Possesses strong communication skills, effective time management, and a high level of curiosity. Able to work professionally, stay organized, and adapt quickly in dynamic environments.
+                </p>
+              </div>
+
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">CONTACT</p>
+                <ul class="contact-list">
+                  <li class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span>calvinpratama12301@gmail.com</span>
+                  </li>
+                  <li class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <span>+62 81386073445</span>
+                  </li>
+                  <li class="contact-item">
+                    <span class="contact-label">Location</span>
+                    <span>Bandung, Indonesia</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">LANGUAGES &amp; SOFTWARE</p>
+                <ul class="skills-list">
+                  <li>Indonesian (Native / Primary)</li>
+                  <li>English (Professional &amp; Academic)</li>
+                  <li>Mandarin (Translation &amp; Localization)</li>
+                  <li>Aegisub (Subtitling &amp; Timing)</li>
+                  <li>Canva, Google Workspace &amp; Microsoft Office</li>
+                  <li>Critical Thinking &amp; Problem-Solving</li>
+                </ul>
+              </div>
+            </aside>
+
+            <div class="cv-main" data-person-scope="calvin">
+              <div class="cv-filter-bar" role="tablist" aria-label="Filter Calvin Pratama CV sections">
+                <button type="button" class="cv-filter-btn is-active" data-filter="all">All Sections</button>
+                <button type="button" class="cv-filter-btn" data-filter="experience">Experience</button>
+                <button type="button" class="cv-filter-btn" data-filter="achievements">Achievements</button>
+                <button type="button" class="cv-filter-btn" data-filter="education">Education</button>
+              </div>
+
+              <div class="cv-panels">
+                <div class="cv-group" data-group="experience">
+                  <h3 class="cv-group-heading">Experience</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Translator Edufair China</h4>
+                        <span class="cv-entry-period">Project Term</span>
+                      </div>
+                      <p class="cv-entry-org">Edufair China Exhibition &amp; Exchange</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Created video content ideas and managed production schedules to ensure consistent, timely uploads.</li>
+                        <li>Supervised and coordinated the end-to-end content creation process from shooting to publishing.</li>
+                        <li>Facilitated cross-cultural linguistic bridging between Indonesian and Chinese educational partners.</li>
+                      </ul>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Project Manager — School Social Media Account</h4>
+                        <span class="cv-entry-period">2025 – NOW</span>
+                      </div>
+                      <p class="cv-entry-org">School Media &amp; Public Relations Division</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Developed video content concepts and maintained structured publishing schedules.</li>
+                        <li>Coordinated end-to-end production workflows and drove audience engagement across digital school platforms.</li>
+                      </ul>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Freelancer Subtitle Specialist</h4>
+                        <span class="cv-entry-period">2025 – NOW</span>
+                      </div>
+                      <p class="cv-entry-org">Independent Professional Freelance</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Translated Chinese subtitles into Indonesian while preserving contextual accuracy and cultural nuance.</li>
+                        <li>Synchronized and edited subtitles in Aegisub adhering strictly to timecodes and reading speed thresholds.</li>
+                      </ul>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Koordinator OSIS Bidang 6</h4>
+                        <span class="cv-entry-period">2024 – NOW</span>
+                      </div>
+                      <p class="cv-entry-org">OSIS SION</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Led division members in planning and executing school-wide events and student welfare initiatives.</li>
+                        <li>Coordinated cross-divisional logistics, scheduling, and stakeholder communications under dynamic deadlines.</li>
+                      </ul>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="cv-group" data-group="achievements">
+                  <h3 class="cv-group-heading">Achievements (2025)</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Gold Medalist — Mathematics Olympiad (OSP)</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">Olimpiade Sains Plus (OSP)</p>
+                    </article>
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Silver Medalist — Mechatronics Competition</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">Parahyangan Catholic University (UNPAR)</p>
+                    </article>
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Silver Medalist — YCMS Competition</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">Youth Creative &amp; Mathematics / Science (YCMS)</p>
+                    </article>
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Silver Medalist — Business Plan Competition</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">Parahyangan Catholic University (UNPAR)</p>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="cv-group" data-group="education">
+                  <h3 class="cv-group-heading">Education</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">SMP BPK PENABUR HOLIS</h4>
+                        <span class="cv-entry-period">2021 – 2024</span>
+                      </div>
+                      <p class="cv-entry-org">Junior High School — Strong academic performance, analytical foundations, and bilingual fluency.</p>
+                    </article>
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">SDK BPK PENABUR HOLIS</h4>
+                        <span class="cv-entry-period">2015 – 2021</span>
+                      </div>
+                      <p class="cv-entry-org">Elementary School — Completed with high distinction in mathematics, linguistics, and collaborative activities.</p>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 02: VYONNE CALISTA YOUVANKA -->
+        <section id="person-vyonne" class="creator-section" aria-labelledby="vyonne-heading">
+          <div class="creator-header">
+            <div>
+              <p class="creator-index mono-meta">02 / 03 · CURRICULUM VITAE</p>
+              <h2 id="vyonne-heading" class="creator-name">Vyonne Calista Youvanka</h2>
+              <p class="creator-headline">
+                Senior High School Student · Mandarin Communicator · Culture &amp; Content Leader
+              </p>
+            </div>
+            <a
+              href="./assets/aistudio/CV_-_VYONNE_____09bbef6b.pdf"
+              data-pdf-file="CV_-_VYONNE_____09bbef6b.pdf"
+              download="CV_Vyonne_Calista_Youvanka.pdf"
+              class="cv-download-btn mono-meta"
+            >
+              <span>DOWNLOAD VYONNE'S CV (PDF)</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div class="creator-grid">
+            <aside class="creator-aside">
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">ABOUT ME</p>
+                <p class="aside-bio">
+                  Senior high school student with strong Mandarin communication skills and a genuine passion for language learning and teaching. Achieved 2nd Place in the 2025 Chinese Bridge Competition and earned a fully funded study camp opportunity in China. Experienced in leadership roles, public speaking, and teamwork.
+                </p>
+              </div>
+
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">CONTACT</p>
+                <ul class="contact-list">
+                  <li class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span>youvankavyonne@gmail.com</span>
+                  </li>
+                  <li class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <span>+62 895-2896-5782</span>
+                  </li>
+                  <li class="contact-item">
+                    <span class="contact-label">Address</span>
+                    <span>THI 1, blok E2 no. 18</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">LANGUAGES &amp; SKILLS</p>
+                <ul class="skills-list">
+                  <li>English</li>
+                  <li>Chinese (B1, studying HSK 5)</li>
+                  <li>Social Media Marketing &amp; Marketing Strategy</li>
+                  <li>Public Speaking &amp; Communication</li>
+                  <li>Problem Solving, Teamwork &amp; Editing</li>
+                </ul>
+              </div>
+            </aside>
+
+            <div class="cv-main" data-person-scope="vyonne">
+              <div class="cv-filter-bar" role="tablist" aria-label="Filter Vyonne Calista Youvanka CV sections">
+                <button type="button" class="cv-filter-btn is-active" data-filter="all">All Sections</button>
+                <button type="button" class="cv-filter-btn" data-filter="experience">Experience</button>
+                <button type="button" class="cv-filter-btn" data-filter="achievements">Achievements</button>
+                <button type="button" class="cv-filter-btn" data-filter="education">Education</button>
+              </div>
+
+              <div class="cv-panels">
+                <div class="cv-group" data-group="experience">
+                  <h3 class="cv-group-heading">Organizational Experience</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">EcoBloom — Environment Organization</h4>
+                        <span class="cv-entry-period">2026</span>
+                      </div>
+                      <p class="cv-entry-org">Head Division of Substance</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Elite-Pro Mandarin</h4>
+                        <span class="cv-entry-period">2026</span>
+                      </div>
+                      <p class="cv-entry-org">Actress and Scriptwriter</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Student Councils</h4>
+                        <span class="cv-entry-period">2024 – 2026</span>
+                      </div>
+                      <p class="cv-entry-org">Member and Head of Culture Division</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Volunteer Organizer</h4>
+                        <span class="cv-entry-period">2024</span>
+                      </div>
+                      <p class="cv-entry-org">Orphanage Donation Initiative</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Church Organizer</h4>
+                        <span class="cv-entry-period">2023 – 2024</span>
+                      </div>
+                      <p class="cv-entry-org">Usher</p>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="cv-group" data-group="achievements">
+                  <h3 class="cv-group-heading">Achievements</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">PBMUN 2026 — Honorable Mention Delegation</h4>
+                        <span class="cv-entry-period">2026</span>
+                      </div>
+                      <p class="cv-entry-org">Awarded for excellence in diplomacy and negotiation.</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Chinese Bridge West Java &amp; Chengdu Study Camp</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">2nd Place in Chinese Bridge West Java 2025; awarded a fully funded study trip to Chengdu, China.</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Maestro FM — Top 2 Finalist</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">Selected Top 2 out of ~40 contestants for excellence in broadcasting, content creation, and public speaking.</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">UKDW National English Content Creation Competition</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">2nd Place Winner; also handpicked as sole School Ambassador representative for the Penabur network.</p>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">UGM Mathematics &amp; Science Olympic + Class Ranking</h4>
+                        <span class="cv-entry-period">2021 – 2024</span>
+                      </div>
+                      <p class="cv-entry-org">Gold Medal in Math &amp; Silver Medal in Science; consistently maintained top class rankings.</p>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="cv-group" data-group="education">
+                  <h3 class="cv-group-heading">Education</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">SMPK BPK PENABUR HOLIS</h4>
+                        <span class="cv-entry-period">2021 – 2024</span>
+                      </div>
+                      <p class="cv-entry-org">Junior High School</p>
+                    </article>
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">SDK BPK PENABUR HOLIS</h4>
+                        <span class="cv-entry-period">2015 – 2021</span>
+                      </div>
+                      <p class="cv-entry-org">Elementary School</p>
+                    </article>
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">TK SUTOMO 1 MEDAN</h4>
+                        <span class="cv-entry-period">2013 – 2015</span>
+                      </div>
+                      <p class="cv-entry-org">Kindergarten</p>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 03: ELIANNA GABRIELLA TANALIN -->
+        <section id="person-elianna" class="creator-section" aria-labelledby="elianna-heading">
+          <div class="creator-header">
+            <div>
+              <p class="creator-index mono-meta">03 / 03 · CURRICULUM VITAE</p>
+              <h2 id="elianna-heading" class="creator-name">Elianna Gabriella Tanalin</h2>
+              <p class="creator-headline">
+                Robotics &amp; Automation Enthusiast · Photographer &amp; Visual Storyteller
+              </p>
+            </div>
+            <a
+              href="./assets/aistudio/ELIANNA_CV2_eec70318.pdf"
+              data-pdf-file="ELIANNA_CV2_eec70318.pdf"
+              download="CV_Elianna_Gabriella_Tanalin.pdf"
+              class="cv-download-btn mono-meta"
+            >
+              <span>DOWNLOAD ELIANNA'S CV (PDF)</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div class="creator-grid">
+            <aside class="creator-aside">
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">PROFILE</p>
+                <p class="aside-bio">
+                  A high school student passionate about electrical engineering, automation, and emerging technologies. Experienced in hands-on technical projects and competitions, with a creative perspective shaped by photography and art. Dedicated to continuous learning, problem-solving, and developing innovative solutions with meaningful impact.
+                </p>
+              </div>
+
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">CONTACT</p>
+                <ul class="contact-list">
+                  <li class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span>eliannagabriellacds@gmail.com</span>
+                  </li>
+                  <li class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <span>+6281997891277</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="aside-block">
+                <p class="block-kicker mono-meta">EXPERTISE &amp; LANGUAGES</p>
+                <ul class="skills-list">
+                  <li>Mandarin / 普通话: HSK 5 (汉语水平考试五级)</li>
+                  <li>English: B2+</li>
+                  <li>Adobe Photoshop &amp; Adobe Lightroom</li>
+                  <li>Photography &amp; Videography</li>
+                  <li>Graphic Design &amp; Art</li>
+                </ul>
+              </div>
+            </aside>
+
+            <div class="cv-main" data-person-scope="elianna">
+              <div class="cv-filter-bar" role="tablist" aria-label="Filter Elianna Gabriella Tanalin CV sections">
+                <button type="button" class="cv-filter-btn is-active" data-filter="all">All Sections</button>
+                <button type="button" class="cv-filter-btn" data-filter="experience">Experience</button>
+                <button type="button" class="cv-filter-btn" data-filter="achievements">Achievements</button>
+                <button type="button" class="cv-filter-btn" data-filter="education">Education</button>
+              </div>
+
+              <div class="cv-panels">
+                <div class="cv-group" data-group="experience">
+                  <h3 class="cv-group-heading">Experience &amp; Freelance</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Freelancer — MC Content Creation Team, Photographer</h4>
+                        <span class="cv-entry-period">July 2025 – Present</span>
+                      </div>
+                      <p class="cv-entry-org">Ceremony &amp; Content Documentation</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Captured key moments during wedding and betrothal ceremonies for content creation.</li>
+                        <li>Collaborated closely with the creative team to deliver photography matching each event’s storytelling and atmosphere.</li>
+                      </ul>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Freelancer — Event Photographer</h4>
+                        <span class="cv-entry-period">July 2024 – Present</span>
+                      </div>
+                      <p class="cv-entry-org">Independent Event Photography</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Documented diverse events and interactions while aligning with client expectations and preferred visual style.</li>
+                        <li>Selected and edited photographs into cohesive visual collections reflecting event atmosphere.</li>
+                      </ul>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">OSIS Hebron — English &amp; Documentation</h4>
+                        <span class="cv-entry-period">2025 – 2026</span>
+                      </div>
+                      <p class="cv-entry-org">Student Council</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Supported cultural and artistic activities through event documentation, photography, and English communication.</li>
+                      </ul>
+                    </article>
+
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Anti-Bullying Committee — Member</h4>
+                        <span class="cv-entry-period">2022 – 2023</span>
+                      </div>
+                      <p class="cv-entry-org">Student Welfare</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Promoted kindness, raised awareness, and supported affected students across school initiatives.</li>
+                      </ul>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="cv-group" data-group="achievements">
+                  <h3 class="cv-group-heading">Achievement</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Mechatronics Product Design Competition — 2nd Winner</h4>
+                        <span class="cv-entry-period">2025</span>
+                      </div>
+                      <p class="cv-entry-org">Parahyangan University, Bandung</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Designed and prototyped a smart city lighting system using ultrasonic sensors to detect real-time vehicle traffic density.</li>
+                        <li>Automated street lighting intensity based on traffic conditions to improve energy efficiency and optimize urban infrastructure.</li>
+                      </ul>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="cv-group" data-group="education">
+                  <h3 class="cv-group-heading">Education</h3>
+                  <div class="cv-entries">
+                    <article class="cv-entry">
+                      <div class="cv-entry-top">
+                        <h4 class="cv-entry-title">Natural Sciences Major — SMA BPK PENABUR HOLIS</h4>
+                        <span class="cv-entry-period">2024 – Present</span>
+                      </div>
+                      <p class="cv-entry-org">Senior High School</p>
+                      <ul class="cv-entry-bullets">
+                        <li>Photography and Videography Extracurricular — exploring visual storytelling and capturing meaningful moments.</li>
+                        <li>PSP Project: AidKit+ — creative initiative strengthening graphic design and 3D modeling skills.</li>
+                      </ul>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <p class="footer-brand">shanghai.</p>
+            <p class="footer-bio">
+              Created by Calvin Pratama, Vyonne Calista Youvanka, and Elianna Gabriella Tanalin. Thank you for exploring our Shanghai Destination Guide.
+            </p>
+          </div>
+          <div>
+            <p class="footer-heading mono-meta">CREATOR PROFILES</p>
+            <ul class="footer-links">
+              <li><a href="#person-calvin" class="footer-link">01. Calvin Pratama</a></li>
+              <li><a href="#person-vyonne" class="footer-link">02. Vyonne Calista Youvanka</a></li>
+              <li><a href="#person-elianna" class="footer-link">03. Elianna Gabriella Tanalin</a></li>
+              <li><a href="./index.html?autostart=1" class="footer-link">← Return to Shanghai Guide</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-heading mono-meta">LOCAL TELEMETRY</p>
+            <p id="shanghai-clock" class="telemetry-clock">00:00:00 CST</p>
+            <p class="telemetry-coords mono-meta">31.2304° N, 121.4737° E</p>
+            <p class="telemetry-coords mono-meta" style="margin-top: 8px">TIME ZONE: UTC+8</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 SHANGHAI DESTINATION GUIDE · BEHIND THE WEBSITE.</span>
+          <span>MONOCHROME EDITION · 03 CURRICULUM VITAE</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        'use strict';
+
+        // 1. Hero Line Reveal
+        requestAnimationFrame(function () {
+          setTimeout(function () {
+            document.body.classList.add('is-revealed');
+          }, 60);
+        });
+
+        // 2. Navigation Overlay
+        const menuToggleBtn = document.getElementById('menu-toggle');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        function setMenuOpen(open) {
+          menuToggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          navOverlay.classList.toggle('is-open', open);
+          navOverlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+          document.body.classList.toggle('is-locked', open);
+        }
+
+        menuToggleBtn.addEventListener('click', function () {
+          const isOpen = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+          setMenuOpen(!isOpen);
+        });
+
+        navOverlay.querySelectorAll('.nav-link').forEach((link) => {
+          link.addEventListener('click', function () {
+            setMenuOpen(false);
+          });
+        });
+
+        window.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && menuToggleBtn.getAttribute('aria-expanded') === 'true') {
+            setMenuOpen(false);
+          }
+        });
+
+        // 3. Scroll Reveal & Active Sticky Roster Tracking
+        const creatorSections = document.querySelectorAll('.creator-section');
+        const rosterTabs = document.querySelectorAll('.roster-tab');
+
+        function setActiveRoster(id) {
+          rosterTabs.forEach((tab) => {
+            tab.classList.toggle('is-active', tab.dataset.roster === id);
+          });
+        }
+
+        if ('IntersectionObserver' in window) {
+          const revealObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-inview');
+                }
+              });
+            },
+            { threshold: 0.08 }
+          );
+
+          const activeObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  setActiveRoster(entry.target.id);
+                }
+              });
+            },
+            { rootMargin: '-25% 0px -55% 0px' }
+          );
+
+          creatorSections.forEach((sec) => {
+            revealObserver.observe(sec);
+            activeObserver.observe(sec);
+          });
+        } else {
+          creatorSections.forEach((sec) => sec.classList.add('is-inview'));
+        }
+
+        // 4. Interactive Section Filter Tabs per Creator
+        document.querySelectorAll('.cv-main').forEach((container) => {
+          const filterBtns = container.querySelectorAll('.cv-filter-btn');
+          const groups = container.querySelectorAll('.cv-group');
+
+          filterBtns.forEach((btn) => {
+            btn.addEventListener('click', function () {
+              const target = btn.dataset.filter;
+              filterBtns.forEach((b) => b.classList.remove('is-active'));
+              btn.classList.add('is-active');
+
+              groups.forEach((grp) => {
+                const show = target === 'all' || grp.dataset.group === target;
+                grp.classList.toggle('is-hidden', !show);
+              });
+            });
+          });
+        });
+
+        // 5. Resilient PDF Download (works in Vite dev, dist build, GitHub Pages, and offline file://)
+        document.querySelectorAll('.cv-download-btn').forEach((link) => {
+          const filename = link.dataset.pdfFile;
+          if (!filename) return;
+
+          if (window.location.protocol === 'file:' && window.location.pathname.indexOf('/dist/') === -1) {
+            link.setAttribute('href', './public/assets/aistudio/' + filename);
+          }
+
+          link.addEventListener('click', async function (e) {
+            if (window.location.protocol === 'file:') {
+              return;
+            }
+            e.preventDefault();
+            const downloadName = link.getAttribute('download') || filename;
+            const candidates = [
+              './assets/aistudio/' + filename,
+              './public/assets/aistudio/' + filename,
+            ];
+
+            for (let i = 0; i < candidates.length; i++) {
+              try {
+                const res = await fetch(candidates[i]);
+                if (res.ok) {
+                  const blob = await res.blob();
+                  const blobUrl = URL.createObjectURL(blob);
+                  const temp = document.createElement('a');
+                  temp.href = blobUrl;
+                  temp.download = downloadName;
+                  document.body.appendChild(temp);
+                  temp.click();
+                  temp.remove();
+                  setTimeout(function () {
+                    URL.revokeObjectURL(blobUrl);
+                  }, 1500);
+                  return;
+                }
+              } catch (_err) {
+                // try next candidate path
+              }
+            }
+            window.location.href = candidates[0];
+          });
+        });
+
+        // 6. Real-Time Shanghai Clock (CST / UTC+8)
+        const shanghaiClockEl = document.getElementById('shanghai-clock');
+        const overlayClockEl = document.getElementById('overlay-clock');
+
+        function formatShanghaiClock(date) {
+          const shanghaiMs = date.getTime() + 8 * 60 * 60 * 1000;
+          const sh = new Date(shanghaiMs);
+          const hh = String(sh.getUTCHours()).padStart(2, '0');
+          const mm = String(sh.getUTCMinutes()).padStart(2, '0');
+          const ss = String(sh.getUTCSeconds()).padStart(2, '0');
+          return hh + ':' + mm + ':' + ss + ' CST';
+        }
+
+        function updateTelemetryClock() {
+          const nowStr = formatShanghaiClock(new Date());
+          if (shanghaiClockEl) shanghaiClockEl.textContent = nowStr;
+          if (overlayClockEl) overlayClockEl.textContent = nowStr;
+        }
+        updateTelemetryClock();
+        setInterval(updateTelemetryClock, 1000);
+
+        // 7. Custom Interactive Difference Cursor
+        const cursorEl = document.getElementById('custom-cursor');
+        const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+        if (isFinePointer && cursorEl) {
+          let targetX = -100;
+          let targetY = -100;
+          let currentX = -100;
+          let currentY = -100;
+          let isHoveringInteractive = false;
+          let scaleFrom = 1;
+          let scaleTo = 1;
+          let currentScale = 1;
+          let scaleAnimStart = 0;
+          const SCALE_DURATION = 500;
+
+          function editorialEase(t) {
+            const c = Math.max(0, Math.min(1, t));
+            return 1 - Math.pow(1 - c, 4);
+          }
+
+          window.addEventListener('mousemove', function (e) {
+            targetX = e.clientX;
+            targetY = e.clientY;
+            if (!cursorEl.classList.contains('is-visible')) {
+              currentX = targetX;
+              currentY = targetY;
+              cursorEl.classList.add('is-visible');
+            }
+          });
+
+          document.addEventListener('mouseover', function (e) {
+            const interactive = e.target.closest('a, button');
+            if (interactive && !isHoveringInteractive) {
+              isHoveringInteractive = true;
+              scaleFrom = currentScale;
+              scaleTo = 2.5;
+              scaleAnimStart = performance.now();
+            }
+          });
+
+          document.addEventListener('mouseout', function (e) {
+            const interactive = e.target.closest('a, button');
+            if (interactive) {
+              const related = e.relatedTarget ? e.relatedTarget.closest('a, button') : null;
+              if (!related && isHoveringInteractive) {
+                isHoveringInteractive = false;
+                scaleFrom = currentScale;
+                scaleTo = 1;
+                scaleAnimStart = performance.now();
+              }
+            }
+          });
+
+          function animateCursor(now) {
+            currentX += (targetX - currentX) * 0.15;
+            currentY += (targetY - currentY) * 0.15;
+
+            if (currentScale !== scaleTo) {
+              const progress = (now - scaleAnimStart) / SCALE_DURATION;
+              if (progress >= 1) {
+                currentScale = scaleTo;
+              } else {
+                currentScale = scaleFrom + (scaleTo - scaleFrom) * editorialEase(progress);
+              }
+            }
+
+            cursorEl.style.transform =
+              'translate3d(' +
+              (currentX - 16).toFixed(2) +
+              'px, ' +
+              (currentY - 16).toFixed(2) +
+              'px, 0) scale(' +
+              currentScale.toFixed(3) +
+              ')';
+
+            requestAnimationFrame(animateCursor);
+          }
+
+          requestAnimationFrame(animateCursor);
+        }
+      })();
+    </script>
+  </body>
+</html>
